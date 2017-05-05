@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+
+     <form action="{{ path('login') }}" method="post">
+     <div class="row">
+     <div class="col-md-offset-5 col-md-3">
+
+     <div class="form-login">
+         <h4>Identifiant </h4>
+         <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Login" name="_username"/>
+         </br>
+         <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" name ="_password" />
+         </br>
+         <div class="wrapper">
+                    <span class="group-btn">
+                        <button class="btn btn-primary btn-md" type="submit">Connexion!</button>
+
+                    </span>
+         </div>
+         {% if error %}
+             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+         {% endif %}
+     </div>
+
+
+
+ {% endblock %}

@@ -1,0 +1,27 @@
+{% set route = app.request.get('_route') %}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ path('homepage') }}">Example</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li {{ route == 'homepage' ? 'class="active" '}}><a href="{{ path('homepage') }}">Home</a></li>
+            <li {{ route == 'product' ? 'class="active" '}}><a href="{{ path('product') }}">New Product</a></li>
+            <li {{ route == 'showAllProducts' ? 'class="active" '}}><a href="{{ path('showAllProducts') }}">Products</a></li>
+            <li {{ route == 'showAllStock' ? 'class="active" '}}><a href="{{ path('showAllStock') }}">Stock</a></li>
+
+            {% if app.user %}
+                <li><a href="{{ path("logout")}}"> Logout </a></li>
+            {%  endif %}
+            {% if app.user is null %}
+                <li><a href="{{ path("login")}}"> Login </a></li>
+            {%  endif %}
+
+
+
+        </ul>
+    </div>
+</nav>
+
+
+
